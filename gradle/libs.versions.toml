@@ -1,4 +1,13 @@
 [versions]
+# Project versions
+projectApplicationId = "com.example.brian_codelab_mark2"
+projectVersionName = "1.0.0"
+projectVersionCode = "1"
+projectMinSdkVersion = "24"
+projectTargetSdkVersion = "36"
+projectCompileSdkVersion = "36"
+desugar_jdk_libs = "2.0.4"
+
 agp = "8.12.2"
 kotlin = "2.0.21"
 coreKtx = "1.17.0"
@@ -13,6 +22,7 @@ material = "1.12.0"
 androidTools = "31.5.0"
 ksp = "2.0.21-1.0.27"
 room = "2.6.1"
+
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -36,6 +46,7 @@ android-tools = { group = "com.android.tools.build", name = "gradle", version.re
 kotlin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 ksp = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
 room = { group = "androidx.room", name = "room-gradle-plugin", version.ref = "room" }
+desugar-jdk-libs = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar_jdk_libs" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -43,3 +54,5 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 
+# Custom Plugins (Build Logic)
+multi-module-android-application-convention = { id = "multi.module.android.application.convention", version = "unspecified"}

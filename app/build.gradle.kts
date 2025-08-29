@@ -6,15 +6,8 @@ plugins {
 
 android {
     namespace = "com.example.brian_codelab_mark2"
-    compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.brian_codelab_mark2"
-        minSdk = 24
-        targetSdk = 36
-        versionCode = 1
-        versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
