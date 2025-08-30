@@ -23,5 +23,9 @@ gradlePlugin {
             id = "multi.module.ui.precompiled.convention"
             implementationClass = "UiPrecompiledConventionPlugin"
         }
+        register("domainPrecompiled") {
+            id = "multi.module.domain.precompiled.convention"
+            implementationClass = "DomainPrecompiledConventionPlugin"
+        }
     }
 }

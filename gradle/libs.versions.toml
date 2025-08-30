@@ -71,7 +71,7 @@ jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrai
 # Custom Plugins (Build Logic)
 multi-module-android-application-convention = { id = "multi.module.android.application.convention", version = "unspecified"}
 multi-module-ui-precompiled-convention = { id = "multi.module.ui.precompiled.convention", version = "unspecified"}
-
+multi-module-domain-precompiled-convention = { id = "multi.module.domain.precompiled.convention", version = "unspecified"}
 
 [bundles]
 hilt = [

@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.multi.module.ui.precompiled.convention)
+    alias(libs.plugins.multi.module.domain.precompiled.convention)
 }
 
 android {
