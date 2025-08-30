@@ -3,7 +3,7 @@
 projectApplicationId = "com.example.brian_codelab_mark2"
 projectVersionName = "1.0.0"
 projectVersionCode = "1"
-projectMinSdkVersion = "24"
+projectMinSdkVersion = "25"
 projectTargetSdkVersion = "36"
 projectCompileSdkVersion = "36"
 desugar_jdk_libs = "2.0.4"
@@ -83,8 +83,10 @@ multi-module-domain-precompiled-convention = { id = "multi.module.domain.precomp
 [bundles]
 hilt = [
     "hilt-android",
-    "hilt-compiler",
     "hilt-testing"
+]
+hilt-ksp = [
+    "hilt-compiler",
 ]
 hilt-jetpack = [
     "hilt-jetpack-common",

@@ -27,5 +27,6 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     implementation(libs.bundles.hilt)
+    ksp(libs.bundles.hilt.ksp)
     implementation(libs.bundles.hilt.jetpack)
 }
