@@ -25,6 +25,9 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/build-logic" />
             <option value="$PROJECT_DIR$/build-logic/conventions" />
+            <option value="$PROJECT_DIR$/home" />
+            <option value="$PROJECT_DIR$/home/domain" />
+            <option value="$PROJECT_DIR$/home/ui" />
           </set>
         </option>
       </GradleProjectSettings>

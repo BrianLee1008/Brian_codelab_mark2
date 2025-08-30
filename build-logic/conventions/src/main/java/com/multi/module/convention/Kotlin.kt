@@ -61,10 +61,6 @@ private fun Project.buildConfigConfiguration(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            buildConfigField("boolean", "APP_DEBUG", false.toString())
-        }
-        getByName("debug") {
-            buildConfigField("boolean", "APP_DEBUG", true.toString())
         }
     }
 }

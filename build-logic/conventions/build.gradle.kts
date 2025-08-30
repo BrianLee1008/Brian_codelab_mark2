@@ -16,8 +16,12 @@ dependencies {
 gradlePlugin {
     plugins {
         register("androidApplication") {
-                id = "multi.module.android.application.convention"
+            id = "multi.module.android.application.convention"
             implementationClass = "AndroidApplicationConventionPlugin"
+        }
+        register("uiPrecompiled") {
+            id = "multi.module.ui.precompiled.convention"
+            implementationClass = "UiPrecompiledConventionPlugin"
         }
     }
 }

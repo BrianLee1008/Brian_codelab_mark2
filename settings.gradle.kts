@@ -22,3 +22,5 @@ dependencyResolutionManagement {
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 rootProject.name = "Brian_codelab_mark2"
 include(":app")
+include(":home:domain")
+include(":home:ui")

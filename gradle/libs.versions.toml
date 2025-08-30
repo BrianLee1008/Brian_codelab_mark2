@@ -25,6 +25,7 @@ room = "2.6.1"
 devtools = "2.0.21-1.0.27"
 hilt = "2.57.1"
 jetpackHilt = "1.2.0"
+jetbrainsKotlinJvm = "2.0.21"
 
 
 [libraries]
@@ -65,9 +66,12 @@ kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "ko
 android-library = { id = "com.android.library", version.ref = "agp" }
 ksp-devtools = { id = "com.google.devtools.ksp", version.ref = "devtools" }
 hilt-plugin = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
 
 # Custom Plugins (Build Logic)
 multi-module-android-application-convention = { id = "multi.module.android.application.convention", version = "unspecified"}
+multi-module-ui-precompiled-convention = { id = "multi.module.ui.precompiled.convention", version = "unspecified"}
+
 
 [bundles]
 hilt = [
@@ -80,3 +84,29 @@ hilt-jetpack = [
     "hilt-jetpack-compiler",
     "hilt-jetpack-nav-compose"
 ]
+core-implementation = [
+    "androidx-core-ktx",
+    "androidx-lifecycle-runtime-ktx",
+
+]
+compose-ui-package-implementation = [
+    "androidx-activity-compose",
+    "androidx-compose-bom",
+    "androidx-ui",
+    "androidx-ui-graphics",
+    "androidx-ui-tooling",
+    "androidx-ui-tooling-preview",
+    "androidx-material3"
+]
+androidTestImplementation = [
+    "junit",
+    "androidx-espresso-core",
+    "androidx-junit",
+    "androidx-compose-bom",
+]
+
+debugImplementation = [
+    "androidx-ui-tooling",
+    "androidx-ui-test-manifest"
+]
+
