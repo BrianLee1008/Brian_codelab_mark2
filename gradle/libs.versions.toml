@@ -102,7 +102,11 @@ compose-ui-package-implementation = [
     "androidx-ui-graphics",
     "androidx-ui-tooling",
     "androidx-ui-tooling-preview",
-    "androidx-material3"
+    "androidx-material3",
+    "material3",
+    "androidx-compose-material3",
+    "androidx-navigation-compose",
+    "androidx-navigation-runtime-ktx"
 ]
 androidTestImplementation = [
     "junit",
