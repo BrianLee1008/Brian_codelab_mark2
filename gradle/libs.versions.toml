@@ -22,6 +22,9 @@ material = "1.12.0"
 androidTools = "31.5.0"
 ksp = "2.0.21-1.0.27"
 room = "2.6.1"
+devtools = "2.0.21-1.0.27"
+hilt = "2.57.1"
+jetpackHilt = "1.2.0"
 
 
 [libraries]
@@ -47,12 +50,33 @@ kotlin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", versio
 ksp = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
 room = { group = "androidx.room", name = "room-gradle-plugin", version.ref = "room" }
 desugar-jdk-libs = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar_jdk_libs" }
+#Hilt
+hilt-android    = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt-compiler   = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+hilt-testing    = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "hilt" }
+hilt-jetpack-nav-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version = "jetpackHilt" }
+hilt-jetpack-common = { group = "androidx.hilt", name = "hilt-common", version = "jetpackHilt" }
+hilt-jetpack-compiler = { group = "androidx.hilt", name = "hilt-compiler", version = "jetpackHilt" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 android-library = { id = "com.android.library", version.ref = "agp" }
+ksp-devtools = { id = "com.google.devtools.ksp", version.ref = "devtools" }
+hilt-plugin = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 
 # Custom Plugins (Build Logic)
 multi-module-android-application-convention = { id = "multi.module.android.application.convention", version = "unspecified"}
+
+[bundles]
+hilt = [
+    "hilt-android",
+    "hilt-compiler",
+    "hilt-testing"
+]
+hilt-jetpack = [
+    "hilt-jetpack-common",
+    "hilt-jetpack-compiler",
+    "hilt-jetpack-nav-compose"
+]
