@@ -5,3 +5,7 @@ plugins {
 android {
     namespace = "com.example.brian_codelab_mark2.home.ui"
 }
+
+dependencies {
+    implementation(project(":home:domain"))
+}
