@@ -1,4 +1,5 @@
-import com.android.build.api.dsl.ApplicationExtension
+
+import com.android.build.api.dsl.LibraryExtension
 import com.multi.module.convention.configureKotlinAndroid
 import com.multi.module.convention.libs
 import org.gradle.api.Plugin
@@ -10,19 +11,16 @@ class UiPrecompiledConventionPlugin: Plugin<Project> {
     override fun apply(target: Project) {
         target.run {
             pluginManager.run {
-                apply("com.android.application")
+                apply("com.android.library") // application plugin 아니므로 library 설정
                 apply("org.jetbrains.kotlin.android")
                 apply("org.jetbrains.kotlin.plugin.compose")
                 apply("com.google.devtools.ksp")
                 apply("com.google.dagger.hilt.android")
             }
 
-            extensions.configure<ApplicationExtension> {
+            extensions.configure<LibraryExtension> { // application plugin 아니므로 library 설정
                 defaultConfig {
-                    applicationId = libs.findVersion("projectApplicationId").get().toString()
                     targetSdk = libs.findVersion("projectTargetSdkVersion").get().toString().toInt()
-                    versionCode = libs.findVersion("projectVersionCode").get().toString().toInt()
-                    versionName = libs.findVersion("projectVersionName").get().toString()
                 }
 
                 configureKotlinAndroid(this)
@@ -35,6 +33,7 @@ class UiPrecompiledConventionPlugin: Plugin<Project> {
                 "implementation"(libs.findBundle("debugImplementation").get())
                 "implementation"(libs.findBundle("hilt").get())
                 "implementation"(libs.findBundle("hilt-jetpack").get())
+                "ksp"(libs.findBundle("hilt-ksp").get())
             }
         }
     }
