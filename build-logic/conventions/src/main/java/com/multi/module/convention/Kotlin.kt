@@ -15,15 +15,29 @@ internal fun Project.configureKotlinAndroid(
 
         defaultConfig.minSdk = libs.findVersion("projectMinSdkVersion").get().toString().toInt()
 
+        defaultConfig {
+            testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        }
+
+        buildFeatures {
+            compose = true
+        }
+        packaging {
+            resources {
+                excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            }
+        }
+
         compileOptions {
             isCoreLibraryDesugaringEnabled = true
             sourceCompatibility = JavaVersion.VERSION_11
             targetCompatibility = JavaVersion.VERSION_11
         }
+
+        configureKotlin()
+        buildConfigConfiguration(this)
+
     }
-
-    configureKotlin()
-
     dependencies {
         "coreLibraryDesugaring"(libs.findLibrary("desugar.jdk.libs").get())
     }
@@ -33,6 +47,24 @@ private fun Project.configureKotlin() {
     tasks.withType<KotlinCompile>().configureEach {
         kotlinOptions {
             jvmTarget = JavaVersion.VERSION_11.toString()
+        }
+    }
+}
+
+private fun Project.buildConfigConfiguration(
+    commonExtension: CommonExtension<*, *, *, *, *, *>,
+) = with(commonExtension) {
+    buildTypes {
+        getByName("release") {
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+            buildConfigField("boolean", "APP_DEBUG", false.toString())
+        }
+        getByName("debug") {
+            buildConfigField("boolean", "APP_DEBUG", true.toString())
         }
     }
 }
